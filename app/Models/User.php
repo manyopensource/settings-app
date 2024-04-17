@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'confirmation_method',
         'password',
     ];
 
@@ -41,5 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+    ];
+
+    public static $confirmationMethods = [
+        'email' => 'Email',
+        'sms' => 'SMS',
+        'telegram' => 'Telegram',
+        'whatsapp' => 'WhatsApp',
     ];
 }
